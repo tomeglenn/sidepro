@@ -3,12 +3,12 @@ const initialState = {
 };
 
 const projectsReducer = function (state = initialState, action) {
-  if (action.type === 'UPDATE_PROJECTS') {
-    return {
-      ...state,
-      projects: [...state.projects, { id: state.projects.length + 1, title: 'Hello', description: 'World' }]
-    };
+  switch (action.type) {
+    case 'UPDATE_PROJECTS':
+      return { ...state, projects: action.projects };
+      break;
   }
+  
   return state;
 }
 
